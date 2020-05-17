@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "mongo",
+    "github": {
+        "enabled": true,
+        "autoAlias": true
+    },
+    "builds": [
+        { "src": "index.js", "use": "@now/node" }
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "index.js" }
+    ]
+}

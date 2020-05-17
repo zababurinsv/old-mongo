@@ -1,0 +1,28 @@
+{
+  "name": "mongo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "gpl",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-enqueue": "^1.0.0",
+    "express-formidable": "^1.2.0",
+    "is-empty": "^1.2.0",
+    "mongoose": "^5.9.10",
+    "now": "^18.0.0"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "server-mongo": "nodemon server.js",
+    "gitHub": "git status && git add -A && git commit -am 'update' && git push",
+    "deploy": "now --prod",
+    "kill;3003": "kill $(lsof -t -i:3003)"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
