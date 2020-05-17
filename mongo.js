@@ -2,7 +2,6 @@ const empty = require('is-empty');
 const connection = require('./connection');
 const mongo = require('mongoose');
 let conn = null;
-
 module.exports = (obj, func, ...args)=>{
     return new Promise( function (resolve, reject) {
         let out = (obj) => {
