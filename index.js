@@ -75,8 +75,6 @@ app.get('/feeds',   cors(corsOptions), async (req, res) => {
 })
 app.options('/itemsBid', cors(corsOptions))
 app.get('/itemsBid',    cors(corsOptions), async (req, res) => {
-    
-    
     try {
         let items = await bid({
             input:'mongo',
