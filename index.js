@@ -26,25 +26,9 @@ let corsOptions = {
         }
     }
 }
-
-// app.get('/', async (req, res) => {
-//     let rss = await mongo({
-//         input:'mongo',
-//         model:'feed',
-//         type:'/'
-//     },'get', 'type')
-//     res.type('rss');
-//     rss[0]['feed'] === undefined
-//     if(rss[0]['feed'] === undefined){
-//         res.send(rss);
-//     }else{
-//         res.send(rss[0]['feed']['rss']);
-//     }
-// })
 app.get('/', async (req, res) => {
     res.send({mongo:"1.0.0"})
 })
-
 app.get('/bid',  async (req, res) => {
     let rss = await bid({
         input:'mongo',
@@ -91,7 +75,6 @@ app.get('/itemsBid',    cors(corsOptions), async (req, res) => {
     
     }
 })
-
 app.options('/bids', cors(corsOptions))
 app.get('/bids',   cors(corsOptions), async (req, res) => {
     let rss = await bid({
@@ -120,7 +103,6 @@ app.get('/bidItem/:id', cors(corsOptions), async (req, res) => {
     },'get', 'type')
     res.json(news)
 })
-
 app.options('/item', cors(corsOptions))
 app.post('/item', cors(corsOptions),async (req, res) => {
     let item = await mongo({
@@ -131,7 +113,6 @@ app.post('/item', cors(corsOptions),async (req, res) => {
     },'get', 'type')
     res.json(item)
 })
-
 app.options('/create-channel', cors(corsOptions))
 app.post('/create-channel', cors(corsOptions), async (req, res) => {
     
@@ -162,7 +143,6 @@ app.post('/create-bid', cors(corsOptions), async (req, res) => {
     },'create', 'type')
     res.json({create:'true'})
 })
-
 app.options('/create-channelBid', cors(corsOptions))
 app.post('/create-channelBid', cors(corsOptions), async (req, res) => {
     
@@ -178,8 +158,6 @@ app.post('/create-channelBid', cors(corsOptions), async (req, res) => {
     },'create', 'type')
     res.json(createNews)
 })
-
-
 app.options('/create-itemBid', cors(corsOptions))
 app.post('/create-itemBid', cors(corsOptions), async (req, res) => {
     
@@ -224,7 +202,6 @@ app.post('/create-item', cors(corsOptions), async (req, res) => {
     },'create', 'type')
     res.json({create:'true'})
 })
-
 app.options('/update-bid/:id', cors(corsOptions))
 app.put('/update-bid/:id',  cors(corsOptions), async (req, res) => {
     
@@ -241,7 +218,6 @@ app.put('/update-bid/:id',  cors(corsOptions), async (req, res) => {
     },'update', 'type')
     res.json({update:'true'})
 })
-//
 app.options('/update-item', cors(corsOptions))
 app.put('/update-item', cors(corsOptions), async (req, res) => {
     await mongo({
@@ -257,7 +233,6 @@ app.put('/update-item', cors(corsOptions), async (req, res) => {
     },'update', 'type')
     res.json({update:'true'})
 })
-
 app.options('/update-itemBid', cors(corsOptions))
 app.put('/update-itemBid', cors(corsOptions), async (req, res) => {
     await bid({
@@ -273,7 +248,6 @@ app.put('/update-itemBid', cors(corsOptions), async (req, res) => {
     },'update', 'type')
     res.json({update:'true'})
 })
-
 app.options('/delete-item', cors(corsOptions))
 app.delete('/delete-item', cors(corsOptions), async (req, res) => {
     let del = await mongo({
